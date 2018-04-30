@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  * Taulellitzador Converteix una matriu de digits positius donada en un taulell
- * a una representació gràfica. Creat per Marc Albareda
+ * a una representaciï¿½ grï¿½fica. Creat per Marc Albareda
  *
  */
 
@@ -20,7 +20,7 @@ public class Taulell extends JPanel {
 	 */
 	SquareRx2[][] squares;
 	SquareRx2[][] oversquares;
-	private int PAD = 20; // el Padding es el marge que tindrà el taulell.
+	private int PAD = 20; // el Padding es el marge que tindrï¿½ el taulell.
 	private int FILES = -1;
 	private int COLS = -1;
 	private int[][] a;
@@ -39,7 +39,7 @@ public class Taulell extends JPanel {
 			0x7F00FF };// paleta de colors per a cada nombre (la primera posicio correspon al numero 0
 						// a la amtriu, la segona al 1, etc)
 	private boolean actlletres = false;
-	private String[] lletres = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "*" }; // què s'ha d'escriure en cada
+	private String[] lletres = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "*" }; // quï¿½ s'ha d'escriure en cada
 																						// casella en base al nombre
 	private int[] colorlletres = { 0x0000FF, 0x00FF00, 0xFFFF00, 0xFF0000, 0xFF00FF, 0x00FFFF, 0x000000, 0xFFFFFF,
 			0xFF8000, 0x7F00FF }; // en quin color s'ha d'escriure en cada casella en base al nombre
@@ -52,9 +52,9 @@ public class Taulell extends JPanel {
 																									// cada casella a
 																									// partir del nombre
 	private Font font = new Font("SansSerif", Font.PLAIN, 22);
-	
-	private int mousefil = 0;  //fila de l'ultim click al mouse
-	private int mousecol = 0;  //columna de l'ultim click al mouse
+
+	private int mousefil = 0; // fila de l'ultim click al mouse
+	private int mousecol = 0; // columna de l'ultim click al mouse
 
 	public Taulell() {
 		addMouseListener(ml);
@@ -62,11 +62,11 @@ public class Taulell extends JPanel {
 	}
 
 	/**
-	 * Mètodes de dibuix. Toqueu-ho sota el vostre risc.
+	 * Mï¿½todes de dibuix. Toqueu-ho sota el vostre risc.
 	 */
 
-	// Mètode principal de dibuix. Cada vegada que es crida el "repaint()" es va
-	// aquí.
+	// Mï¿½tode principal de dibuix. Cada vegada que es crida el "repaint()" es va
+	// aquï¿½.
 	protected void paintComponent(Graphics g) {
 
 		if (init) { // assegurar-me que fins que no s'envien dades no es mostra res
@@ -101,11 +101,11 @@ public class Taulell extends JPanel {
 							colorlletres, actimatges, imatges, actimgbackground);
 				}
 			}
-			if(actoverdraw) {
-				initoverSquares(overdraw.length,overdraw[0].length);
+			if (actoverdraw) {
+				initoverSquares(overdraw.length, overdraw[0].length);
 				for (int i = 0; i < overdraw.length; i++) {
 					for (int j = 0; j < overdraw[0].length; j++) {
-						oversquares[i][j].overdraw(g2, overdraw[i][j],imatges);
+						oversquares[i][j].overdraw(g2, overdraw[i][j], imatges);
 					}
 				}
 			}
@@ -114,13 +114,13 @@ public class Taulell extends JPanel {
 
 	}
 
-	// Aquest mètode inicialitza la matriu per primera vegada creant els quadrats
+	// Aquest mï¿½tode inicialitza la matriu per primera vegada creant els quadrats
 	private void initSquares() {
 
 		squares = new SquareRx2[FILES][COLS];
 		int w = getWidth();
 		int h = getHeight();
-		double xInc = (double) (w - 2 * PAD) / COLS; // aixo es geometria eh. Basicament diu que cada cuadrat tindrà de
+		double xInc = (double) (w - 2 * PAD) / COLS; // aixo es geometria eh. Basicament diu que cada cuadrat tindrï¿½ de
 														// mida horitzontal la amplada total - els dos marges, dividit
 														// per el nombre de quadrats que tens.
 		double yInc = (double) (h - 2 * PAD) / FILES;
@@ -133,16 +133,15 @@ public class Taulell extends JPanel {
 			}
 		}
 	}
-	
-	
+
 	private void initoverSquares(int fil, int col) {
 
 		oversquares = new SquareRx2[fil][col];
 		int w = getWidth();
 		int h = getHeight();
-		double xInc = (double) (w - 2 * PAD) / col; // aixo es geometria eh. Basicament diu que cada cuadrat tindrà de
-														// mida horitzontal la amplada total - els dos marges, dividit
-														// per el nombre de quadrats que tens.
+		double xInc = (double) (w - 2 * PAD) / col; // aixo es geometria eh. Basicament diu que cada cuadrat tindrï¿½ de
+													// mida horitzontal la amplada total - els dos marges, dividit
+													// per el nombre de quadrats que tens.
 		double yInc = (double) (h - 2 * PAD) / fil;
 		for (int i = 0; i < fil; i++) {
 			double y = PAD + i * yInc;
@@ -154,7 +153,7 @@ public class Taulell extends JPanel {
 		}
 	}
 
-	// aquest mètode redibuixa el taulell si la finestra es canvia de mida.
+	// aquest mï¿½tode redibuixa el taulell si la finestra es canvia de mida.
 	ComponentListener cl = new ComponentAdapter() {
 		public void componentResized(ComponentEvent e) {
 			squares = null;
@@ -163,8 +162,8 @@ public class Taulell extends JPanel {
 	};
 
 	/**
-	 * Mètode de dibuix públic. Aquest mètode rep la matriu i crida als altres
-	 * mètodes.
+	 * Mï¿½tode de dibuix pï¿½blic. Aquest mï¿½tode rep la matriu i crida als altres
+	 * mï¿½todes.
 	 */
 	public void dibuixa(int[][] a) {
 		this.a = a;
@@ -179,8 +178,6 @@ public class Taulell extends JPanel {
 
 		repaint();
 	};
-	
-	
 
 	public void dibuixa(Integer[][] a) {
 		int[][] b = new int[a.length][a[0].length];
@@ -192,19 +189,16 @@ public class Taulell extends JPanel {
 
 		dibuixa(b);
 	};
-	
+
 	public void overdibuixa(int[][] a) {
-		this.actoverdraw=true;
-		this.overdraw=a;
+		this.actoverdraw = true;
+		this.overdraw = a;
 		repaint();
-		
-		
+
 	};
-	
-	
 
 	/**
-	 * Integració del ratolí
+	 * Integraciï¿½ del ratolï¿½
 	 */
 
 	private MouseListener ml = new MouseAdapter() {
@@ -369,7 +363,6 @@ public class Taulell extends JPanel {
 	public void setMousecol(int mousecol) {
 		this.mousecol = mousecol;
 	}
-	
 
 }
 
@@ -407,7 +400,7 @@ class SquareRx2 {
 	public void overdraw(Graphics2D g2, int value, String[] overimatges) {
 		// TODO Auto-generated method stub
 		if (!(overimatges[value].equals(""))) { // Entrendrem que un string buit significa que no vols imatge en aquella
-			// posició
+			// posiciï¿½
 			BufferedImage img = null;
 			try {
 				img = ImageIO.read(new File(overimatges[value]));
@@ -449,16 +442,18 @@ class SquareRx2 {
 
 		if (actimatges) {
 			if (!(imatges[value].equals(""))) { // Entrendrem que un string buit significa que no vols imatge en aquella
-												// posició
+												// posiciï¿½
 				BufferedImage img = null;
 				try {
 					img = ImageIO.read(new File(imatges[value]));
-				} catch (IOException e) {
-				}
+				
 				g2.drawImage(img, (int) x, (int) y + 3, (int) (x + xInc), (int) (y + yInc), 0, 0, img.getWidth(),
 						img.getHeight(), null);
 				/// El y+3 es per posar uns pixels de marge perque no comenci sobre la mateixa
 				/// linea de borde.
+				} catch (Exception e) {
+					System.out.println("Error on imatge "+value+" , "+imatges[value]);
+				}
 			}
 		}
 		if (actlletres) {
@@ -482,10 +477,13 @@ class SquareRx2 {
 	}
 
 	public void mouseClick() {
-		//System.out.println("SQUARE[row:" + fil + ", col:" + col + ", value:" + value + "]");
-		
+		// System.out.println("SQUARE[row:" + fil + ", col:" + col + ", value:" + value
+		// + "]");
+
 		t.setMousefil(fil);
 		t.setMousecol(col);
-		//si vols que les teves opcions vagin per ratolí, a partir d'aquesta funció hauries de cridar una funcio estatica de la TEVA classe. També pots consultar les variables mitjançant els getters de mosuefil y mousecol
+		// si vols que les teves opcions vagin per ratolï¿½, a partir d'aquesta funciï¿½
+		// hauries de cridar una funcio estatica de la TEVA classe. Tambï¿½ pots consultar
+		// les variables mitjanï¿½ant els getters de mosuefil y mousecol
 	}
 }
