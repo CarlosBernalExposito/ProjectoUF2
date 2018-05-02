@@ -104,13 +104,11 @@ public class NecrodancerV2 {
 
 			for (k = 0; k < entities.size(); k++) {
 				entities.get(k).mv();
+				//printMap();
 				entities.get(k).refreshPs();
-				System.out.println(entities.get(k).id);
+				//System.out.println(entities.get(k).id);
 			}
 			map[row - 1][col / 2] = 1;
-			for(k=0;k<entities.size();k++) {
-				entities.get(k).refreshPs();
-			}
 			view();
 		}
 	}

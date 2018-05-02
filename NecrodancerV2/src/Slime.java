@@ -2,7 +2,7 @@
 public class Slime extends Enemy {
 
 	public Slime(int posx, int posy, int mvDire) {
-		super(posx, posy, mvDire);
+		super(posx, posy, mvDire,2);
 		hp = 2;
 		dmg = 1;
 		gValue = 10;
