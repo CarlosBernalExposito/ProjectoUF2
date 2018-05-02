@@ -59,6 +59,7 @@ public class Ske extends Enemy {
 			if (i >= 0 && i < NecrodancerV2.row && j >= 0 && j < NecrodancerV2.col) {
 
 				if (NecrodancerV2.map[i][j] == 0) {
+					//Comentado para desactivar los proyectiles, que no consigo que se muevan por algun motivo
 					/*if (mvCount % 3 == 0) {
 						this.spearThrow();
 						this.refreshPs();
