@@ -6,7 +6,7 @@ public class Ske extends Enemy {
 
 	public Ske(int posx, int posy, int mvDire, char eje) {
 
-		super(posx, posy, mvDire);
+		super(posx, posy, mvDire, 4);
 		axis = eje;
 		hp = 3;
 		dmg = 2;
@@ -55,19 +55,19 @@ public class Ske extends Enemy {
 				}
 				}
 			}
-			
+
 			if (i >= 0 && i < NecrodancerV2.row && j >= 0 && j < NecrodancerV2.col) {
 
 				if (NecrodancerV2.map[i][j] == 0) {
-					if(mvCount%3==0) {
-						spearThrow(this);
-					}
-					else {
+					/*if (mvCount % 3 == 0) {
+						this.spearThrow();
+						this.refreshPs();
+					} else {*/
 						NecrodancerV2.map[psx][psy] = 0;
 						psx = i;
 						psy = j;
 						this.refreshPs();
-					}
+					//}
 
 				}
 
@@ -89,38 +89,41 @@ public class Ske extends Enemy {
 		}
 	}
 
-	public void spearThrow(Ske e) {
-		int i = 0, j = 0;
+	public void spearThrow() {
+		int i = 0, j = 0, sId = 0;
 
-		switch (e.mvDir % 2) {
+		switch (this.mvDir % 2) {
 		case 0: {
-			if (e.axis == 'h') {
-				i = e.psx;
-				j = e.psy + 1;
+			if (this.axis == 'h') {
+				i = this.psx;
+				j = this.psy + 1;
+				sId = 12;
 			} else {
-				i = e.psx + 1;
-				j = e.psy;
+				i = this.psx + 1;
+				j = this.psy;
+				sId = 13;
 			}
 			break;
 		}
 
 		case 1: {
-			if (e.axis == 'v') {
-				i = e.psx - 1;
-				j = e.psy;
+			if (this.axis == 'v') {
+				i = this.psx - 1;
+				j = this.psy;
+				sId = 14;
 			} else {
-				i = e.psx;
-				j = e.psy - 1;
+				i = this.psx;
+				j = this.psy - 1;
+				sId = 11;
 			}
 			break;
 		}
 		}
 
-		if (e.mvDir == 0) {
-			new Proyectile(i, j, e.mvDir, e.axis);
-		} else {
-			new Proyectile(i, j, e.mvDir, e.axis);
+		if (NecrodancerV2.map[i][j] == 0) {
+			new Proyectile(i, j, this.mvDir, this.axis, sId);
 		}
+
 	}
 
 }

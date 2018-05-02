@@ -6,11 +6,10 @@ public class Proyectile extends Entity{
 	protected int dir;
 	protected char axis;
 	protected int dmg;
-	protected boolean ded = false;
 
-	public Proyectile(int posx, int posy, int dire, char eje) {
+	public Proyectile(int posx, int posy, int dire, char eje, int id) {
 
-		super(posx,posy);
+		super(posx,posy,id);
 		psx = posx;
 		psy = posy;
 		dir = dire;
@@ -18,6 +17,7 @@ public class Proyectile extends Entity{
 		dmg=2;
 
 		NecrodancerV2.proyectiles.add(this);
+		NecrodancerV2.entities.add(this);
 	}
 
 	public void mv() {

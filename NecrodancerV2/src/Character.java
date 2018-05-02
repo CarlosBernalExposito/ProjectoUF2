@@ -4,8 +4,8 @@ public abstract class Character extends Entity{
 	protected int dmg;
 	protected int gValue;
 
-	public Character(int posx, int posy) {
-		super(posx,posy);
+	public Character(int posx, int posy, int id) {
+		super(posx,posy,id);
 		NecrodancerV2.characters.add(this);
 	}
 
@@ -20,7 +20,6 @@ public abstract class Character extends Entity{
 			System.out.println("Oro: " + NecrodancerV2.p.gValue);
 			NecrodancerV2.map[psx][psy] = 0;
 			NecrodancerV2.enemyCounter--;
-
 			if (NecrodancerV2.enemyCounter == 0) {
 				NecrodancerV2.map[1][NecrodancerV2.col / 2] = 10;
 			}

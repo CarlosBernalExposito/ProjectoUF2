@@ -5,7 +5,7 @@ public class Player extends Character {
 	protected char dir;
 
 	public Player(int posx, int posy) {
-		super(posx, posy);
+		super(posx, posy,5);
 
 		hp = 6;
 		dmg = 1;
@@ -71,7 +71,7 @@ public class Player extends Character {
 
 		else {
 			for (k = 0; k < NecrodancerV2.characters.size(); k++) {
-				if (NecrodancerV2.characters.get(k).psx == iTar && NecrodancerV2.characters.get(k).psy == jTar) {
+				if (NecrodancerV2.characters.get(k).psx == iTar && NecrodancerV2.characters.get(k).psy == jTar && NecrodancerV2.characters.get(k).ded==false) {
 					NecrodancerV2.p.attac(NecrodancerV2.characters.get(k));
 				}
 			}
